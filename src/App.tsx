@@ -4,11 +4,12 @@ import NumberField from './components/NumberField/NumberField';
 import './App.css';
 import KeyboardRoman from './components/KeyboardRoman/KeyboardRoman';
 import KeyboardArabic from './components/KeyboardArabic/KeyboardArabic';
+import Switch from './components/Switch/Switch';
 
-type KeyboardType = 'roman' | 'arabic';
+export type NumeralSystem = "arabic" | "roman";
 
 function App() {
-  const [selectedKeyboard, setSelectedBoard] = useState<KeyboardType>('roman');
+  const [selectedNumeralSystem, setSelectedNumeralSystem] = useState<NumeralSystem>('roman');
 
   const handleKeyPressed = useCallback(() => {
 
@@ -18,8 +19,9 @@ function App() {
     <div className="App">
       <NumberField label="Arabic" value='3' />
       <NumberField label="Roman" value='iii' />
-      {selectedKeyboard === 'roman' && <KeyboardRoman onKeyPressed={handleKeyPressed}/>}
-      {selectedKeyboard === 'arabic' && <KeyboardArabic onKeyPressed={handleKeyPressed}/>}
+      <Switch numeralSystem={selectedNumeralSystem} onChange={setSelectedNumeralSystem} />
+      {selectedNumeralSystem === 'roman' && <KeyboardRoman onKeyPressed={handleKeyPressed}/>}
+      {selectedNumeralSystem === 'arabic' && <KeyboardArabic onKeyPressed={handleKeyPressed}/>}
     </div>
   );
 }
