@@ -28,7 +28,8 @@ export type ArabicPolinomialDecomposition =
   | "6"
   | "7"
   | "8"
-  | "9";
+  | "9"
+  | "0";
 
 export type ValidRomanNumber =
   | "M"
@@ -60,7 +61,8 @@ export type ValidRomanNumber =
   | "VI"
   | "VII"
   | "VIII"
-  | "IX";
+  | "IX"
+  | "";
 
 type ToRomanConverter = {
   [key in ArabicPolinomialDecomposition]: ValidRomanNumber;
@@ -97,4 +99,5 @@ export const toRomanConverter: ToRomanConverter = {
   "7": "VII",
   "8": "VIII",
   "9": "IX",
+  "0": ""
 };
