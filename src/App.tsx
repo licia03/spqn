@@ -6,6 +6,7 @@ import KeyboardRoman from "./components/KeyboardRoman/KeyboardRoman";
 import KeyboardArabic from "./components/KeyboardArabic/KeyboardArabic";
 import Switch from "./components/Switch/Switch";
 import { RomanValue, ArabicValue } from "./components/Key/Key";
+import { toRomanConverter, ArabicPolinomialDecomposition } from "./utility/converter";
 
 export type NumeralSystem = "arabic" | "roman";
 
@@ -24,6 +25,13 @@ function App() {
     setNumber((prevState) => prevState.concat(value));
   }, []);
 
+  const getRomanByArabicNumber = useCallback(() => {
+    return Array.from(number).reduce((previous, current, index) => {
+      const digit = (+current * Math.pow(10, number.length - index - 1)).toString() as ArabicPolinomialDecomposition;
+      return previous + toRomanConverter[digit];
+    }, "");
+  }, [number]);
+
   return (
     <div className="App">
       <NumberField
@@ -32,7 +40,7 @@ function App() {
       />
       <NumberField
         label="Roman"
-        value={selectedNumeralSystem === "roman" ? number : "II"}
+        value={selectedNumeralSystem === "roman" ? number : getRomanByArabicNumber()}
       />
       <Switch
         numeralSystem={selectedNumeralSystem}
