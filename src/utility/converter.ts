@@ -1,4 +1,4 @@
-import { ArabicPolinomialDecomposition, ValidRomanNumber, RomanChar, ArabicValue } from "../types";
+import { ArabicPolinomialDecomposition, ValidRomanNumber, RomanChar, ArabicValue, ValidArabicNumber } from "../types";
 
 type ToRomanConverter = {
   [key in ArabicPolinomialDecomposition]: ValidRomanNumber;
@@ -50,4 +50,21 @@ export const toArabicConverter: ToArabicConverter = {
   "C": 100,
   "D": 500,
   "M": 1000
+};
+
+export const getRomanByArabicNumber = (number: RomanChar | ValidArabicNumber | string) => {
+  return Array.from(number).reduce((previous, current, index) => {
+    const digit = (
+      +current * Math.pow(10, number.length - index - 1)
+    ).toString() as ArabicPolinomialDecomposition;
+    return previous + toRomanConverter[digit];
+  }, "");
+};
+
+export const getArabicByRomanNumber = (number: RomanChar | ValidArabicNumber | string) => {
+  return Array.from(number).reduce((previous, current, index) => {
+    const currentDigit = toArabicConverter[current as RomanChar];
+    const nextDigit = index < number.length - 1 ? toArabicConverter[number[index + 1] as RomanChar] : -1;
+    return previous + (currentDigit >= nextDigit ? currentDigit : -currentDigit);
+  }, 0).toString();
 };
