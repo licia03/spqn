@@ -14,7 +14,9 @@ function App() {
   const [selectedNumeralSystem, setSelectedNumeralSystem] = useState<
     NumeralSystem
   >("roman");
-  const [number, setNumber] = useState<RomanChar | ValidArabicNumber | string>("");
+  const [number, setNumber] = useState<RomanChar | ValidArabicNumber | string>(
+    ""
+  );
 
   const handleChangeNumeralSystem = useCallback(
     (numeralSystem: NumeralSystem) => {
@@ -24,9 +26,12 @@ function App() {
     []
   );
 
-  const handleKeyPressed = useCallback((value: RomanChar | ValidArabicNumber) => {
-    setNumber((prevState) => prevState.concat(value));
-  }, []);
+  const handleKeyPressed = useCallback(
+    (value: RomanChar | ValidArabicNumber) => {
+      setNumber((prevState) => prevState.concat(value));
+    },
+    []
+  );
 
   const onClearHandler = useCallback(() => {
     setNumber("");
@@ -36,12 +41,19 @@ function App() {
     <div className="App">
       <NumberField
         label="Arabic"
-        value={selectedNumeralSystem === "arabic" ? number : getArabicByRomanNumber(number)}
+        value={
+          selectedNumeralSystem === "arabic"
+            ? number
+            : getArabicByRomanNumber(number)
+        }
+        
       />
       <NumberField
         label="Roman"
         value={
-          selectedNumeralSystem === "roman" ? number : getRomanByArabicNumber(number)
+          selectedNumeralSystem === "roman"
+            ? number
+            : getRomanByArabicNumber(number)
         }
       />
       <Switch

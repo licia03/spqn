@@ -4,10 +4,10 @@ type Label = 'Roman' | 'Arabic';
 
 interface Props {
     value: string;
-    label: Label
+    label: Label;
 }
 
-const NumberField: React.FC<Props> = ({ value, label }) => (
+const NumberField: React.FC<Props> = ({ value, label}) => (
     <div>
         <label>{label}</label>
         <input readOnly value={value} />
