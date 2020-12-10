@@ -1,9 +1,10 @@
 import React from "react";
 import Keyboard from "../Keyboard/Keyboard";
-import Key, { RomanValue, ArabicValue } from "../Key/Key";
+import Key from "../Key/Key";
+import { RomanChar, ValidArabicNumber } from "../../types";
 
 interface Props {
-  onKeyPressed: (value: RomanValue | ArabicValue) => void;
+  onKeyPressed: (value: RomanChar | ValidArabicNumber) => void;
 }
 
 const KeyboardArabic: React.FC<Props> = ({ onKeyPressed }) => (

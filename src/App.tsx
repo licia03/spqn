@@ -5,21 +5,17 @@ import "./App.css";
 import KeyboardRoman from "./components/KeyboardRoman/KeyboardRoman";
 import KeyboardArabic from "./components/KeyboardArabic/KeyboardArabic";
 import Switch from "./components/Switch/Switch";
-import { RomanValue, ArabicValue } from "./components/Key/Key";
 import {
   toRomanConverter,
-  ArabicPolinomialDecomposition,
   toArabicConverter,
-  RomanChar
 } from "./utility/converter";
-
-export type NumeralSystem = "arabic" | "roman";
+import { RomanChar, NumeralSystem, ArabicPolinomialDecomposition, ValidArabicNumber } from "./types";
 
 function App() {
   const [selectedNumeralSystem, setSelectedNumeralSystem] = useState<
     NumeralSystem
   >("roman");
-  const [number, setNumber] = useState<RomanValue | ArabicValue | string>("");
+  const [number, setNumber] = useState<RomanChar | ValidArabicNumber | string>("");
 
   const handleChangeNumeralSystem = useCallback(
     (numeralSystem: NumeralSystem) => {
@@ -29,7 +25,7 @@ function App() {
     []
   );
 
-  const handleKeyPressed = useCallback((value: RomanValue | ArabicValue) => {
+  const handleKeyPressed = useCallback((value: RomanChar | ValidArabicNumber) => {
     setNumber((prevState) => prevState.concat(value));
   }, []);
 

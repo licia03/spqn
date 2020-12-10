@@ -1,21 +1,9 @@
 import React, { useCallback } from "react";
-
-export type RomanValue = "I" | "V" | "X" | "C" | "L" | "M" | "D";
-export type ArabicValue =
-  | "0"
-  | "1"
-  | "2"
-  | "3"
-  | "4"
-  | "5"
-  | "6"
-  | "7"
-  | "8"
-  | "9";
+import { RomanChar, ValidArabicNumber } from "../../types";
 
 interface Props {
-  value: RomanValue | ArabicValue;
-  onClick: (value: RomanValue | ArabicValue) => void;
+  value: RomanChar | ValidArabicNumber;
+  onClick: (value: RomanChar | ValidArabicNumber) => void;
 }
 
 const Key: React.FC<Props> = ({ value, onClick }) => {

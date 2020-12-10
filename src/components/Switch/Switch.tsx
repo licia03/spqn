@@ -1,6 +1,5 @@
 import React, { useCallback } from "react";
-
-import { NumeralSystem } from "../../App";
+import { NumeralSystem } from "../../types";
 
 interface SwitchProps {
   numeralSystem: NumeralSystem;
