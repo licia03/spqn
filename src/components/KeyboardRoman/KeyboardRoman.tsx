@@ -13,6 +13,7 @@ const KeyboardRoman: React.FC<Props> = ({onKeyPressed}) => (
     <Key value="X" onClick={onKeyPressed} />
     <Key value="L" onClick={onKeyPressed} />
     <Key value="C" onClick={onKeyPressed} />
+    <Key value="D" onClick={onKeyPressed} />
     <Key value="M" onClick={onKeyPressed} />
   </Keyboard>
 );

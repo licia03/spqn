@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 
-export type RomanValue = "I" | "V" | "X" | "C" | "L" | "M";
+export type RomanValue = "I" | "V" | "X" | "C" | "L" | "M" | "D";
 export type ArabicValue =
   | "0"
   | "1"
