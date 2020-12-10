@@ -9,6 +9,8 @@ import { RomanValue, ArabicValue } from "./components/Key/Key";
 import {
   toRomanConverter,
   ArabicPolinomialDecomposition,
+  toArabicConverter,
+  RomanChar
 } from "./utility/converter";
 
 export type NumeralSystem = "arabic" | "roman";
@@ -40,6 +42,14 @@ function App() {
     }, "");
   }, [number]);
 
+  const getArabicByRomanNumber = useCallback(() => { // XIV
+    return Array.from(number).reduce((previous, current, index) => {
+      const currentDigit = toArabicConverter[current as RomanChar];
+      const nextDigit = index < number.length - 1 ? toArabicConverter[number[index + 1] as RomanChar] : -1;
+      return previous + (currentDigit >= nextDigit ? currentDigit : -currentDigit);
+    }, 0).toString();
+  }, [number]);
+
   const onClearHandler = useCallback(() => {
     setNumber("");
   }, []);
@@ -48,7 +58,7 @@ function App() {
     <div className="App">
       <NumberField
         label="Arabic"
-        value={selectedNumeralSystem === "arabic" ? number : "11"}
+        value={selectedNumeralSystem === "arabic" ? number : getArabicByRomanNumber()}
       />
       <NumberField
         label="Roman"

@@ -101,3 +101,20 @@ export const toRomanConverter: ToRomanConverter = {
   "9": "IX",
   "0": ""
 };
+
+export type RomanChar = "I" | "V" | "X" | "L" | "C" | "M" | "D";
+export type ArabicValue = 1 | 5 | 10 | 50 | 100 | 1000 | 500;
+
+type ToArabicConverter = {
+  [key in RomanChar]: ArabicValue;
+};
+
+export const toArabicConverter: ToArabicConverter = {
+  "I": 1,
+  "V": 5,
+  "X": 10,
+  "L": 50,
+  "C": 100,
+  "D": 500,
+  "M": 1000
+};
