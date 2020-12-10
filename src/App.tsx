@@ -7,13 +7,15 @@ import Switch from "./components/Switch/Switch";
 import {
   getArabicByRomanNumber,
   getRomanByArabicNumber,
+  MAX_ARABIC_NUMBER,
 } from "./utility/converter";
 import { RomanChar, NumeralSystem, ValidArabicNumber } from "./types";
 
-function App() {
-  const [selectedNumeralSystem, setSelectedNumeralSystem] = useState<
-    NumeralSystem
-  >("roman");
+const App = () => {
+  const [
+    selectedNumeralSystem,
+    setSelectedNumeralSystem,
+  ] = useState<NumeralSystem>("roman");
   const [number, setNumber] = useState<RomanChar | ValidArabicNumber | string>(
     ""
   );
@@ -28,7 +30,11 @@ function App() {
 
   const handleKeyPressed = useCallback(
     (value: RomanChar | ValidArabicNumber) => {
-      setNumber((prevState) => prevState.concat(value));
+      setNumber((prevState) =>
+        +prevState.concat(value) > +MAX_ARABIC_NUMBER
+          ? MAX_ARABIC_NUMBER
+          : prevState.concat(value)
+      );
     },
     []
   );
@@ -46,7 +52,6 @@ function App() {
             ? number
             : getArabicByRomanNumber(number)
         }
-        
       />
       <NumberField
         label="Roman"
@@ -69,6 +74,6 @@ function App() {
       )}
     </div>
   );
-}
+};
 
 export default App;

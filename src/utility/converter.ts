@@ -68,3 +68,5 @@ export const getArabicByRomanNumber = (number: RomanChar | ValidArabicNumber | s
     return previous + (currentDigit >= nextDigit ? currentDigit : -currentDigit);
   }, 0).toString();
 };
+
+export const MAX_ARABIC_NUMBER = "3999";
