@@ -24,7 +24,7 @@ const Switch: React.FC<SwitchProps> = ({ numeralSystem, onChange }) => {
       type="checkbox"
       checked={numeralSystem === defaultNumeralSystem}
       onChange={onChangeHandler}
-      value="ciao love"
+      value=""
     />
   );
 };

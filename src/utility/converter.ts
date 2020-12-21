@@ -70,3 +70,4 @@ export const getArabicByRomanNumber = (number: RomanChar | ValidArabicNumber | s
 };
 
 export const MAX_ARABIC_NUMBER = "3999";
+export const MIN_ARABIC_NUMBER = "1";
