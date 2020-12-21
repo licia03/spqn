@@ -13,10 +13,9 @@ import {
 import { RomanChar, NumeralSystem, ValidArabicNumber } from "./types";
 
 const App = () => {
-  const [
-    selectedNumeralSystem,
-    setSelectedNumeralSystem,
-  ] = useState<NumeralSystem>("roman");
+  const [selectedNumeralSystem, setSelectedNumeralSystem] = useState<
+    NumeralSystem
+  >("roman");
   const [number, setNumber] = useState<RomanChar | ValidArabicNumber | string>(
     ""
   );
@@ -36,12 +35,24 @@ const App = () => {
     []
   );
 
-  const handleKeyPressed = useCallback(
-    (value: RomanChar | ValidArabicNumber) => {
+  const handleKeyPressedArabic = useCallback(
+    (value: ValidArabicNumber | string) => {
       if (
         +number.concat(value) > +MAX_ARABIC_NUMBER ||
         +number.concat(value) < +MIN_ARABIC_NUMBER
       ) {
+        setErrorNumber(number.concat(value));
+      } else {
+        setNumber((prevState) => prevState.concat(value));
+      }
+    },
+    [number]
+  );
+
+  const handleKeyPressedRoman = useCallback(
+    (value: RomanChar | string) => {
+      const romanValidation = /^(?=[MDCLXVI])M{0,3}(C[MD]|D?C{0,3})(X[CL]|L?X{0,3})(I[XV]|V?I{0,3})$/g;
+      if (!romanValidation.test(number.concat(value))) {
         setErrorNumber(number.concat(value));
       } else {
         setNumber((prevState) => prevState.concat(value));
@@ -72,19 +83,17 @@ const App = () => {
             : getRomanByArabicNumber(number)
         }
       />
-      {errorNumber && (
-        <div>The number {errorNumber} is not valid</div>
-      )}
+      {errorNumber && <div>The number {errorNumber} is not valid</div>}
       <Switch
         numeralSystem={selectedNumeralSystem}
         onChange={handleChangeNumeralSystem}
       />
       <button onClick={onClearHandler}>CLEAR</button>
       {selectedNumeralSystem === "roman" && (
-        <KeyboardRoman onKeyPressed={handleKeyPressed} />
+        <KeyboardRoman onKeyPressed={handleKeyPressedRoman} />
       )}
       {selectedNumeralSystem === "arabic" && (
-        <KeyboardArabic onKeyPressed={handleKeyPressed} />
+        <KeyboardArabic onKeyPressed={handleKeyPressedArabic} />
       )}
     </div>
   );
