@@ -1,4 +1,4 @@
-.key {
+.button {
     margin: 10px;
     width: 40px;
     background: #08457e;
@@ -8,7 +8,7 @@
     color: #fff;
 }
 
-.key:hover {
+.button:hover {
     background-color: #08457e;
     opacity: 0.8;
     cursor: pointer;

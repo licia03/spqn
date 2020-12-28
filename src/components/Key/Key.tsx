@@ -13,7 +13,7 @@ const Key: React.FC<Props> = ({ value, onClick }) => {
     onClick(value);
   }, [value, onClick]);
 
-  return <button className={styles.key} onClick={onClickHandler}>{value}</button>;
+  return <button className={styles.button} onClick={onClickHandler}>{value}</button>;
 };
 
 export default Key;
