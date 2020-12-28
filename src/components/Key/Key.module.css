@@ -1,0 +1,15 @@
+.key {
+    margin: 10px;
+    width: 40px;
+    background: #08457e;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid #08457e;
+    color: #fff;
+}
+
+.key:hover {
+    background-color: #08457e;
+    opacity: 0.8;
+    cursor: pointer;
+}

@@ -1,6 +1,8 @@
 import React, { useCallback } from "react";
 import { RomanChar, ValidArabicNumber } from "../../types";
 
+import styles from './Key.module.css';
+
 interface Props {
   value: RomanChar | ValidArabicNumber;
   onClick: (value: RomanChar | ValidArabicNumber) => void;
@@ -11,7 +13,7 @@ const Key: React.FC<Props> = ({ value, onClick }) => {
     onClick(value);
   }, [value, onClick]);
 
-  return <button onClick={onClickHandler}>{value}</button>;
+  return <button className={styles.key} onClick={onClickHandler}>{value}</button>;
 };
 
 export default Key;

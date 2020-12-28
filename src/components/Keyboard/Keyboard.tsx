@@ -1,5 +1,7 @@
 import React from 'react';
 
-const Keyboard: React.FC = ({children}) => (<div>{children}</div>);
+import styles from './Keyboard.module.css';
+
+const Keyboard: React.FC = ({children}) => (<div className={styles.Keyboard}>{children}</div>);
 
 export default Keyboard;
