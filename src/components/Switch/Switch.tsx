@@ -1,6 +1,8 @@
 import React, { useCallback } from "react";
 import { NumeralSystem } from "../../types";
 
+import styles from "./Switch.module.css";
+
 interface SwitchProps {
   numeralSystem: NumeralSystem;
   onChange: (value: NumeralSystem) => void;
@@ -20,12 +22,18 @@ const Switch: React.FC<SwitchProps> = ({ numeralSystem, onChange }) => {
   );
 
   return (
-    <input
-      type="checkbox"
-      checked={numeralSystem === defaultNumeralSystem}
-      onChange={onChangeHandler}
-      value=""
-    />
+    <div className={styles.mid}>
+      <label className={styles.rocker}>
+        <input
+          type="checkbox"
+          checked={numeralSystem === defaultNumeralSystem}
+          onChange={onChangeHandler}
+          value=""
+        />
+        <span className={styles.switchLeft}>Arabic</span>
+        <span className={styles.switchRight}>Roman</span>
+      </label>
+    </div>
   );
 };
 

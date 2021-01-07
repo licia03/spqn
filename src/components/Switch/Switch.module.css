@@ -1,0 +1,132 @@
+.mid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 1em;
+}
+
+.rocker {
+  display: inline-block;
+  position: relative;
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  color: #888;
+  width: 182px;
+  height: 87px;
+  overflow: hidden;
+  border-bottom: 0.5em solid #eee;
+}
+
+.rocker::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 0.5em solid #eee;
+  border-bottom: 0;
+}
+
+.rocker input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switchLeft,
+.switchRight {
+  cursor: pointer;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.5em;
+  width: auto;
+  transition: 0.2s;
+  padding: 10px;
+}
+
+.switchLeft {
+  height: 2.4em;
+  width: auto;
+  left: 0.85em;
+  bottom: 10px;
+  background-color: #ddd;
+  transform: rotate(15deg) skewX(15deg);
+}
+
+.switchRight {
+  right: 0.5em;
+  bottom: 0;
+  background-color: #bd5757;
+  color: #fff;
+}
+
+.switchLeft::before,
+.switchRight::before {
+  content: "";
+  position: absolute;
+  width: 0.4em;
+  height: 2.45em;
+  bottom: -0.45em;
+  background-color: #ccc;
+  transform: skewY(-65deg);
+}
+
+.switchLeft::before {
+  left: -0.4em;
+}
+
+.switchRight::before {
+  right: -0.375em;
+  background-color: transparent;
+  transform: skewY(65deg);
+}
+
+input:checked + .switchLeft {
+  background-color: #0084d0;
+  color: #fff;
+  bottom: 0px;
+  left: 0.5em;
+  height: 2.5em;
+  width: auto;
+  transform: rotate(0deg) skewX(0deg);
+}
+
+input:checked + .switchLeft::before {
+  background-color: transparent;
+  width: auto;
+}
+
+input:checked + .switchLeft + .switchRight {
+  background-color: #ddd;
+  color: #888;
+  bottom: 10px;
+  right: 0.8em;
+  height: 2.4em;
+  width: auto;
+  transform: rotate(-15deg) skewX(-15deg);
+}
+
+input:checked + .switchLeft + .switchRight::before {
+  background-color: #ccc;
+}
+
+/* Keyboard Users */
+input:focus + .switchLeft {
+  color: #333;
+}
+
+input:checked:focus + .switchLeft {
+  color: #fff;
+}
+
+input:focus + .switchLeft + .switchRight {
+  color: #fff;
+}
+
+input:checked:focus + .switchLeft + .switchRight {
+  color: #333;
+}
