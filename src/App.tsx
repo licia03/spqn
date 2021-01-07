@@ -11,6 +11,7 @@ import {
   MIN_ARABIC_NUMBER,
 } from "./utility/converter";
 import { RomanChar, NumeralSystem, ValidArabicNumber } from "./types";
+import ResetCTA from "./components/ResetCTA/ResetCTA";
 
 const App = () => {
   const [selectedNumeralSystem, setSelectedNumeralSystem] = useState<
@@ -88,7 +89,7 @@ const App = () => {
         numeralSystem={selectedNumeralSystem}
         onChange={handleChangeNumeralSystem}
       />
-      <button onClick={onClearHandler}>CLEAR</button>
+      <ResetCTA onReset={onClearHandler} />
       {selectedNumeralSystem === "roman" && (
         <KeyboardRoman onKeyPressed={handleKeyPressedRoman} />
       )}
