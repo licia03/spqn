@@ -1,12 +1,11 @@
 .button {
     padding: 10px;
-    border: 1px solid khaki;
-    background-color: indigo;
-    color: khaki;
     border-radius: 8px;
+    border: none;
     margin: 10px;
 }
 
 .button:hover{
     opacity: 0.8;
+    cursor: pointer;
 }
