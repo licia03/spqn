@@ -1,0 +1,37 @@
+.app {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.circleAnimation {
+  animation-duration: 1s;
+}
+
+.romanAnimation {
+  animation-name: circleAnimation1;
+}
+
+.arabicAnimation {
+  animation-name: circleAnimation2;
+}
+
+@keyframes circleAnimation1 {
+  0% {
+    clip-path: circle(0%);
+  }
+  100% {
+    clip-path: circle(100%);
+  }
+}
+@keyframes circleAnimation2 {
+  0% {
+    clip-path: circle(0%);
+  }
+  100% {
+    clip-path: circle(100%);
+  }
+}

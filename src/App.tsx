@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useEffect } from "react";
+import cn from "classnames";
 import NumberField from "./components/NumberField/NumberField";
-import "./App.css";
+import styles from "./App.module.css";
 import KeyboardRoman from "./components/KeyboardRoman/KeyboardRoman";
 import KeyboardArabic from "./components/KeyboardArabic/KeyboardArabic";
 import Switch from "./components/Switch/Switch";
@@ -12,6 +13,7 @@ import {
 } from "./utility/converter";
 import { RomanChar, NumeralSystem, ValidArabicNumber } from "./types";
 import ResetCTA from "./components/ResetCTA/ResetCTA";
+import paletteStyles from "./utility/palette.module.css";
 
 const App = () => {
   const [selectedNumeralSystem, setSelectedNumeralSystem] = useState<
@@ -67,7 +69,10 @@ const App = () => {
   }, []);
 
   return (
-    <div className="App">
+    <div className={cn(styles.app, styles.circleAnimation, {
+      [paletteStyles.backgroundArabic]: selectedNumeralSystem === "arabic",
+      [paletteStyles.backgroundRoman]: selectedNumeralSystem === "roman",
+    })}>
       <NumberField
         label="Arabic"
         value={
