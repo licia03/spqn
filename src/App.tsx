@@ -5,6 +5,7 @@ import styles from "./App.module.css";
 import KeyboardRoman from "./components/KeyboardRoman/KeyboardRoman";
 import KeyboardArabic from "./components/KeyboardArabic/KeyboardArabic";
 import Switch from "./components/Switch/Switch";
+import Title from "./components/Title/Title";
 import {
   getArabicByRomanNumber,
   getRomanByArabicNumber,
@@ -73,6 +74,7 @@ const App = () => {
       [paletteStyles.backgroundArabic]: selectedNumeralSystem === "arabic",
       [paletteStyles.backgroundRoman]: selectedNumeralSystem === "roman",
     })}>
+      <Title wave="umbers">SPQN</Title>
       <NumberField
         label="Arabic"
         value={

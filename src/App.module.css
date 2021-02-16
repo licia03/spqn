@@ -2,10 +2,11 @@
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   height: 100vh;
   background-color: #f4f1ee;
+  padding: 20px;
 }
 
 .circleAnimation {

@@ -13,10 +13,10 @@
   text-align: center;
   text-transform: uppercase;
   color: #888;
-  width: 182px;
+  width: 180px;
   height: 87px;
   overflow: hidden;
-  border-bottom: 0.5em solid #eee;
+  border-bottom: 0.5em solid #888;
 }
 
 .rocker::before {
@@ -25,7 +25,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  border: 0.5em solid #eee;
+  border: 20px solid #888;
   border-bottom: 0;
 }
 
@@ -53,7 +53,7 @@
   width: auto;
   left: 0.85em;
   bottom: 10px;
-  background-color: #ddd;
+  background-color: #fff;
   transform: rotate(15deg) skewX(15deg);
 }
 
@@ -68,19 +68,19 @@
 .switchRight::before {
   content: "";
   position: absolute;
-  width: 0.4em;
-  height: 2.45em;
-  bottom: -0.45em;
+  width: 18px;
+  height: 39px;
+  bottom: -19px;
   background-color: #ccc;
   transform: skewY(-65deg);
 }
 
 .switchLeft::before {
-  left: -0.4em;
+  left: -19px;
 }
 
 .switchRight::before {
-  right: -0.375em;
+  right: -15px;
   background-color: transparent;
   transform: skewY(65deg);
 }
@@ -101,7 +101,7 @@ input:checked + .switchLeft::before {
 }
 
 input:checked + .switchLeft + .switchRight {
-  background-color: #ddd;
+  background-color: #fff;
   color: #888;
   bottom: 10px;
   right: 0.8em;
