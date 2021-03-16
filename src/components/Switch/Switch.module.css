@@ -16,16 +16,17 @@
   width: 200px;
   height: 87px;
   overflow: hidden;
-  border-bottom: 0.5em solid #888;
+  border-bottom: 0.5em solid #dcdcdc;
+  background-color: #dcdcdc;
 }
 
 .rocker::before {
   content: "";
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border: 50px solid #888;
+  left: 20px;
+  right: 15px;
+  top: 50px;
+  border: 22px solid #ababab;
   border-bottom: 0;
 }
 
@@ -51,7 +52,7 @@
 .switchLeft {
   height: 2.4em;
   width: auto;
-  left: 24px;
+  left: 31px;
   bottom: 10px;
   background-color: #fff;
   transform: rotate(15deg) skewX(15deg);
