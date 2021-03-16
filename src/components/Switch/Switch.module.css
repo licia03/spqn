@@ -13,7 +13,7 @@
   text-align: center;
   text-transform: uppercase;
   color: #888;
-  width: 180px;
+  width: 200px;
   height: 87px;
   overflow: hidden;
   border-bottom: 0.5em solid #888;
@@ -25,7 +25,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  border: 20px solid #888;
+  border: 50px solid #888;
   border-bottom: 0;
 }
 
@@ -51,14 +51,14 @@
 .switchLeft {
   height: 2.4em;
   width: auto;
-  left: 0.85em;
+  left: 24px;
   bottom: 10px;
   background-color: #fff;
   transform: rotate(15deg) skewX(15deg);
 }
 
 .switchRight {
-  right: 0.5em;
+  right: 15px;
   bottom: 0;
   background-color: #bd5757;
   color: #fff;
@@ -89,7 +89,7 @@ input:checked + .switchLeft {
   background-color: #0084d0;
   color: #fff;
   bottom: 0px;
-  left: 0.5em;
+  left: 20px;
   height: 2.5em;
   width: auto;
   transform: rotate(0deg) skewX(0deg);
@@ -104,7 +104,7 @@ input:checked + .switchLeft + .switchRight {
   background-color: #fff;
   color: #888;
   bottom: 10px;
-  right: 0.8em;
+  right: 20px;
   height: 2.4em;
   width: auto;
   transform: rotate(-15deg) skewX(-15deg);
