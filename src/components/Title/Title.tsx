@@ -12,7 +12,7 @@ const Title: React.FC<TitleProps> = ({ children, wave = "" }) => (
     {wave && (
       <sub>
         {Array.from(wave).map((letter, index) =>
-          index % 2 === 0 ? <sub>{letter}</sub> : <sup>{letter}</sup>
+          index % 2 === 0 ? <sub key={`${letter}_${index}`}>{letter}</sub> : <sup key={`${letter}_${index}`}>{letter}</sup>
         )}
       </sub>
     )}
