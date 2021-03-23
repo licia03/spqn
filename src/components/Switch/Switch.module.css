@@ -61,7 +61,7 @@
 .switchRight {
   right: 15px;
   bottom: 0;
-  background-color: #bd5757;
+  background-color: #ff5821;
   color: #fff;
 }
 
@@ -87,7 +87,7 @@
 }
 
 input:checked + .switchLeft {
-  background-color: #0084d0;
+  background-color: #08457e;
   color: #fff;
   bottom: 0px;
   left: 20px;
