@@ -16,4 +16,8 @@
   padding: 10px;
   outline: none;
   border: 1px solid #08457e;
+  color: #fff;
+  background-color: #08457e;
+  cursor: not-allowed;
+  text-align: center;
 }
